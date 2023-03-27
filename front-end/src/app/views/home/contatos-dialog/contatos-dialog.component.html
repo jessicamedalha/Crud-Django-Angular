@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Contatos </h1>
+<div mat-dialog-content>
+    <mat-list role="list">
+        <mat-list-item role="listitem">Telefone: {{data.telefone}}</mat-list-item>
+        <mat-list-item role="listitem">E-mail: {{data.email}} </mat-list-item>
+        <mat-list-item role="listitem">WhatsApp: {{data.whatsapp}}</mat-list-item>
+      </mat-list>      
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fechar</button>
+</div>

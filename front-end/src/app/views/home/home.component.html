@@ -1,0 +1,67 @@
+<mat-toolbar class="grad">
+    <mat-icon>home</mat-icon>
+    <span>My aplication</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+
+<div class="principal">
+    <mat-list class="menu-lateral">
+        <mat-list-item class="item">
+            <span class="item">Item 1</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <span class="item">Item 2</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <span class="item">Item 3</span>
+        </mat-list-item>
+    </mat-list>
+    <div class="tela-de-rolagem">
+        <div class="search">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>CPF</mat-label>
+                  <input type="tel"  [formControl]="cpf" matInput placeholder="Procure por um CPF">
+                  <mat-icon (click)="filterByCpf()" matSuffix>search</mat-icon>
+                </mat-form-field>
+            </form>
+            <div class="button">
+                <button (click)="openDialogEdit('create')"mat-mini-fab color=#200120fa aria-label="Example icon button with a delete icon">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="conteudo">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+            <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
+              <th mat-header-cell *matHeaderCellDef>
+                {{column.header}}
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <div *ngIf="column.header === 'Contatos'">
+                    <button (click)="openDialog(column.cell(row))" mat-mini-fab color=#200120fa aria-label="Example icon button with a delete icon">
+                        <mat-icon>contacts</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="column.header === 'Opções'">
+                    <button (click)="openDialogEdit(column.cell(row))" mat-mini-fab color=#200120fa aria-label="Example icon button with a delete icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="deletePeople(column.cell(row))" mat-mini-fab color=#200120fa aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="column.header !='Opções'&&  column.header != 'Contatos'">
+                    {{column.cell(row)}}
+                </div>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+          
+    </div>  
+</div>

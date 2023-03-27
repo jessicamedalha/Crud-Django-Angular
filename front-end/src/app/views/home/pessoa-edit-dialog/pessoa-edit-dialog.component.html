@@ -1,0 +1,45 @@
+<h1 mat-dialog-title> Criar pessoa</h1>
+
+<div mat-dialog-content>     
+    <div class="example-container">
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite o nome</mat-label>
+                    <input matInput placeholder={{data.nome}}  formControlName="nome" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite o CPF</mat-label>
+                    <input matInput placeholder=''  formControlName="cpf" required>
+                </mat-form-field>
+            </div>
+            <div class="form" formGroupName="contatos">
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite o telefone</mat-label>
+                    <input matInput placeholder=''  formControlName="telefone" required>
+                </mat-form-field>
+            </div>
+            <div class="form" formGroupName="contatos">
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite o whatsapp</mat-label>
+                    <input matInput placeholder=''  formControlName="whatsapp" required>
+                </mat-form-field>
+            </div>
+            <div class="form" formGroupName="contatos"> 
+                <mat-form-field appearance="fill">
+                    <mat-label>Digite o e-mail</mat-label>
+                    <input matInput placeholder=''  formControlName="email" required>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fechar</button>
+  <button mat-button (click)="saveClick()">Salvar</button>
+</div>
+
