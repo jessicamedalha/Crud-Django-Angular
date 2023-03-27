@@ -1,5 +1,5 @@
 # Crud-Django-Angular
-Projeto utilizando Django e Angular
+Projeto utilizando Django e Angular. As requisição POST não esta funcionando bem no front-end (porém ao utilizar o postman, funciona bem) e a requisição patch não esta atualizando os dados de contato. Assim que possivel vou investigar os motivos.
 
 ## Para o bakc-end:<br>
 - Instalação Python: sudo apt-get install python3
